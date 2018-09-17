@@ -1,0 +1,165 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>少数派</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+    <style>
+        .title{
+            color: white;
+            text-align:center;
+        }
+        .bar{
+            background-color: #292525
+        }
+
+.name{
+    color: white;
+}
+
+        ul{
+            margin: 5px auto;
+            width: 100%;
+            height: 40px;
+            padding: 1px;
+
+        }
+
+        li{
+            list-style-type: none;
+            float: left;
+        }
+        a{
+            display: block;
+            width: 170px;
+            height: 50px;
+            font-family: Microsoft Yahei;
+            font-weight: bold;
+            line-height: 30px;
+            background-color: white;;
+            margin: 0px 0px;
+            color: #070707;
+            text-align: center;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .kongbai{
+            height: 10px;
+            width:100%;
+
+        }
+        .daohang2{
+            padding-top: 30px;
+        }
+a1{
+    display: flex;
+    line-height: 30px;
+    background-color: white;;
+    margin: 0px 0px;
+    color: #9b9b9b;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    padding-left: 12px;
+}
+a2{
+    display: flex;
+    line-height: 30px;
+    background-color: white;;
+    margin: 0px 0px;
+    color:black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    padding-left: 12px;
+}
+
+        .title1{
+            color: white;
+            padding-left: 400px;
+            padding-top: 2px;
+        }
+
+.two{
+    padding-left: 60px;
+}
+.daohang2{
+    padding-left: 4px;
+}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default bar navbar-inverse">
+    <div class="container">
+        <div class="navbar-left">
+            <img th:src="@{'img/'+${logo.logo}}" class="logo">
+            <span th:text="${logo.name}" class="name"></span>
+        </div>
+
+        <div class="navbar-left">
+            <h4 class="title1">#全部专题</h4>
+        </div>
+
+        <div class="navbar-right" >
+            <img th:src="@{'img/'+${user.avatar}}" class="img-circle">
+
+        </div>
+    </div>
+</nav>
+<div class="two" >
+    <ul class=daohang>
+        <li><a href="">正版软件</a></li>
+        <li><a href="">付费栏目</a></li>
+        <li><a href="">Matrix</a></li>
+        <li><a href="">专题广场</a></li>
+        <li><a href="">热门文章</a></li>
+        <li><a href="">应用推荐</a></li>
+        <li><a href="">生活方式</a></li>
+    </ul>
+</div>
+
+<div class="kongbai"></div>
+
+<div class="container">
+    <div class="col-md-4" th:each="pai:${paiList}">
+<div >
+    <img style="height:170px;width: 350px;" th:class="one" th:src="@{'img/'+${pai.pic}}" class="tupian">
+<div class="caption">
+        <h3  style="position:absolute;font-weight: bold; color: white; z-index:2; left:24px; top:1px" th:text="${pai.title}"class="text-center" ></h3>
+</div>
+    <div class="caption">
+        <h5  style="position:absolute; color: white; z-index:2; left:24px; top:1px;padding-top:120px;" th:text="${pai.collect}"class="text-center" ></h5>
+
+    </div>
+
+</div>
+    </div>
+    <div class="daohang2">
+    <ul1 >
+        <li><a2 href="">全部</a2></li>
+        <li><a1 href="">硬件</a1></li>
+        <li><a1 href="">效率</a1></li>
+        <li><a1 href="">游戏</a1></li>
+    </ul1>
+    </div>
+</div>
+<div class="kongbai"> </div>
+<div class="container">
+    <div class="col-md-3" th:each="card:${cardList}">
+        <div class="one" style="padding-top: 20px;" >
+            <img style="height:127px;width:262px;" th:src="@{'img/'+${card.imgLink}}" class="tupian">
+            <div class="caption">
+                <h4 style="position:absolute; font-weight: bold; color: white;  z-index:2; left:24px; top:1px;padding-top: 30px" th:text="${card.called}"class="text-center" ></h4>
+            </div>
+            <div >
+                <h5  style="position:absolute; color: white;  left:24px; top:1px;padding-top:100px;" th:text="${card.collect}"class="text-center" ></h5>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

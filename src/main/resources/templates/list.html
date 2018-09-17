@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:margin-right="http://www.w3.org/1999/xhtml"
+      xmlns:margin-left="http://www.w3.org/1999/xhtml" xmlns:background-image="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>music</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+    <style>
+        p{
+            display: inline;
+            padding-left: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container"   >
+    <H2 style="text-align: center">音乐推荐</H2>
+    <div class="alert alert-success" th:each="book:${booklist}">
+
+
+                <img src="open.png">
+
+                <p>歌名:</p><p th:text="${book.name}" style="color: black;"/>
+
+                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp歌手:</p><p th:text="${book.author}" style="color: black"/>
+
+                <p>&nbsp&nbsp&nbsp&nbsp&nbsp时间:</p><p th:text="${book.time}" style="color: red"/>
+
+
+        </div>
+    </div>
+
+</body>
+</html>
